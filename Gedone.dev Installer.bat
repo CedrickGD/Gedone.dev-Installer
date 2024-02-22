@@ -1,6 +1,8 @@
 @echo off
 title Gedone.dev Installer
+color 5
 set "install_path=%USERPROFILE%\Desktop"
+cd /d "%install_path%"
 
 :check_prerequisites
 cls
@@ -42,43 +44,46 @@ echo Gedone.dev Installer
 echo ======================================================
 echo.
 echo 1. Install ReaperV2
-echo 2. Install Program 2
-echo 3. Install Program 3
+echo 2. Install Rust Mouse Script
+echo 3. ---
 echo 4. Open Installation Path
 echo 5. Exit
 echo.
 set /p choice=Select an option: 
 
 if "%choice%"=="1" (
-    echo Installing ReaperV1...
+    echo Installing ReaperV2...
     git clone https://github.com/CedrickGD/ReaperV2-.git
     echo Cloning repository...
     timeout /t 2 /nobreak >nul
     echo Cloned repository.
     echo.
     cd ReaperV2-
-    echo Installing ReaperV1...
-    REM Add any other commands needed to install ReaperV1
+    echo Installing ReaperV2...
+
+
 ) else if "%choice%"=="2" (
-    echo Installing Program 2...
-    REM Add your installation commands for Program 2 here
-    echo Installing Program 2...
+    echo Installing Rust Mouse Script
+    git clone https://github.com/CedrickGD/Rust-Mouse-Script.git
+    echo Downloading Script...
     timeout /t 2 /nobreak >nul
-    echo Program 2 installed.
-) else if "%choice%"=="3" (
-    echo Installing Program 3...
-    REM Add your installation commands for Program 3 here
-    echo Installing Program 3...
-    timeout /t 2 /nobreak >nul
-    echo Program 3 installed.
+    echo Script downloaded! 
+    echo. 
+    echo Check Your Desktop!
+
+
 ) else if "%choice%"=="4" (
     echo Opening default installation path...
     start "" "%install_path%"
     timeout /t 2 /nobreak >nul
     goto :menu
+
+
 ) else if "%choice%"=="5" (
     echo Exiting...
     exit
+
+
 ) else (
     echo Invalid option. Please try again.
     pause
