@@ -23,6 +23,7 @@ REM Check for Git
 where git >nul 2>&1 || (
     echo Git not found. Installing Git...
     start /wait "" "ms-settings:appsfeatures?appid=Microsoft.Git&plcid=0x409" && call :install_git
+    taskkill /IM ms-settings:appsfeatures /F
 )
 
 REM Check for git-lfs
@@ -61,7 +62,6 @@ if "%choice%"=="1" (
     cd ReaperV2-
     echo Installing ReaperV2...
 
-
 ) else if "%choice%"=="2" (
     echo Installing Rust Mouse Script
     git clone https://github.com/CedrickGD/Rust-Mouse-Script.git
@@ -71,18 +71,15 @@ if "%choice%"=="1" (
     echo. 
     echo Check Your Desktop!
 
-
 ) else if "%choice%"=="4" (
     echo Opening default installation path...
     start "" "%install_path%"
     timeout /t 2 /nobreak >nul
     goto :menu
 
-
 ) else if "%choice%"=="5" (
     echo Exiting...
     exit
-
 
 ) else (
     echo Invalid option. Please try again.
