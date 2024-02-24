@@ -32,12 +32,6 @@ where git-lfs >nul 2>&1 || (
     powershell -Command "iex (New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/git-lfs/git-lfs/main/install.ps1')" && call :install_git_lfs
 )
 
-REM Check for Node.js
-where node >nul 2>&1 || (
-    echo Node.js not found. Installing Node.js...
-    start /wait "" "https://nodejs.org/dist/v16.14.0/node-v16.14.0-x64.msi" /qn
-)
-
 :menu
 cls
 echo ======================================================
